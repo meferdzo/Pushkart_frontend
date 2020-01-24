@@ -5,6 +5,7 @@ export class PageConfig {
 				'title': 'Dashboard',
 				'desc': 'Latest updates and statistic charts'
 			},
+
 		},
 		ngbootstrap: {
 			accordion: {

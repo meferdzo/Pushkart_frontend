@@ -4,7 +4,7 @@ export class MenuConfig {
 			self: {},
 			items: [
 				{
-					title: 'Sestavi sporočilo',
+					title: '    Sestavi sporočilo',
 					root: true,
 					icon: 'flaticon2-architecture-and-city',
 					page: 'dashboard',
@@ -12,10 +12,10 @@ export class MenuConfig {
 					bullet: 'dot',
 				},
 				{
-					title: 'Layout Builder',
+					title: '    Layout Builder',
 					root: true,
 					icon: 'flaticon2-expand',
-					page: 'builder'
+					pageone: 'builder'
 				},
 			]
 		},
