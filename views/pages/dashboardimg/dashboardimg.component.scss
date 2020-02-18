@@ -1,0 +1,19 @@
+:host {
+	::ng-deep {
+		ngb-tabset > .nav-tabs {
+			display: none;
+		}
+	}
+}
+
+label {
+	font-size: 20px;
+}
+
+input.ng-invalid.ng-touched {
+	border: 1px solid red;
+}
+
+textarea.ng-invalid.ng-touched {
+	border: 1px solid red;
+}
