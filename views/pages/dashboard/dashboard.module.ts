@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 // Core Module
 import { CoreModule } from '../../../core/core.module';
 import { PartialsModule } from '../../partials/partials.module';
@@ -13,6 +13,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 @NgModule({
 	imports: [
 		CommonModule,
+		FormsModule,
 		PartialsModule,
 		CoreModule,
 		HttpClientModule,

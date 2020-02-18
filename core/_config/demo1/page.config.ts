@@ -2,10 +2,15 @@ export class PageConfig {
 	public defaults: any = {
 		dashboard: {
 			page: {
-				'title': 'Dashboard',
-				'desc': 'Latest updates and statistic charts'
+				'title': 'Sestavi sporočilo',
+				'desc': 'Poslji tekstovno sporocilo'
 			},
-
+		},
+		'dashboardimg': {
+			page: {
+				'title': 'Sestavi slikovno sporočilo',
+				'desc': 'Pošlji slikovno/tekstovno sporočilo'
+			},
 		},
 		ngbootstrap: {
 			accordion: {
@@ -210,7 +215,7 @@ export class PageConfig {
 			}
 		},
 		builder: {
-			page: {title: 'Layout Builder', desc: ''}
+			page: {title: 'Sestavi slikovno sporočilo', desc: ''}
 		},
 		header: {
 			actions: {

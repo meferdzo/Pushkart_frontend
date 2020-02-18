@@ -1,8 +1,10 @@
 // Angular
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardimgComponent } from './views/pages/dashboardimg/dashboardimg.component'
 
 const routes: Routes = [
+
 	{path: 'auth', loadChildren: () => import('app/views/pages/auth/auth.module').then(m => m.AuthModule)},
 
 	// enable this router to set which demo theme to load,

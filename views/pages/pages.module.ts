@@ -7,9 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PartialsModule } from '../partials/partials.module';
 // Pages
 import { CoreModule } from '../../core/core.module';
+import { DashboardimgComponent } from './dashboardimg/dashboardimg.component';
 
 @NgModule({
-	declarations: [],
+	declarations: [DashboardimgComponent],
 	exports: [],
 	imports: [
 		CommonModule,

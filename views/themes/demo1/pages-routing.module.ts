@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 // Components
 import { BaseComponent } from './base/base.component';
 import { ErrorPageComponent } from './content/error-page/error-page.component';
+import { DashboardimgComponent} from '../../pages/dashboardimg/dashboardimg.component';
 // Auth
 import { AuthGuard } from '../../../core/auth';
 
@@ -13,6 +14,10 @@ const routes: Routes = [
 		component: BaseComponent,
 		canActivate: [AuthGuard],
 		children: [
+			{
+				path: 'dashboardimg',
+				component: DashboardimgComponent
+			},
 			{
 				path: 'dashboard',
 				loadChildren: () => import('app/views/pages/dashboard/dashboard.module').then(m => m.DashboardModule)

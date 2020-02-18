@@ -1,6 +1,7 @@
 // Angular
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms";
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -87,10 +88,13 @@ export function hljsLanguages(): HighlightLanguage[] {
 }
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [
+		AppComponent,
+	],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,
+		FormsModule,
 		AppRoutingModule,
 		HttpClientModule,
 		environment.isMockEnabled ? HttpClientInMemoryWebApiModule.forRoot(FakeApiService, {
