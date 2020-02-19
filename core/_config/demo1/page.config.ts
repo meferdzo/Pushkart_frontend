@@ -12,6 +12,12 @@ export class PageConfig {
 				'desc': 'Pošlji slikovno/tekstovno sporočilo'
 			},
 		},
+		'notificationhistory': {
+			page: {
+				'title': 'Zgodovina pošiljanj',
+				'desc': 'Arhiv poslanih sporočil'
+			},
+		},
 		ngbootstrap: {
 			accordion: {
 				page: {title: 'Accordion', desc: ''}

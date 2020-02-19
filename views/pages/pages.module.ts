@@ -8,9 +8,10 @@ import { PartialsModule } from '../partials/partials.module';
 // Pages
 import { CoreModule } from '../../core/core.module';
 import { DashboardimgComponent } from './dashboardimg/dashboardimg.component';
+import { NotificationhistoryComponent } from './notificationhistory/notificationhistory.component';
 
 @NgModule({
-	declarations: [DashboardimgComponent],
+	declarations: [DashboardimgComponent, NotificationhistoryComponent],
 	exports: [],
 	imports: [
 		CommonModule,

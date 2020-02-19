@@ -20,7 +20,7 @@ export class MenuConfig {
 					title: 'Zgodovina pošiljanj',
 					root: true,
 					alignment: 'left',
-					page: 'dashboard',
+					page: '/notificationhistory',
 				},
 			]
 		},
@@ -45,9 +45,8 @@ export class MenuConfig {
 				{
 					title: 'Zgodovina pošiljanj',
 					root: true,
-					bullet: 'dot',
 					icon: 'flaticon2-browser-2',
-					page: 'builder'
+					page: '/notificationhistory'
 				},
 			]
 		},

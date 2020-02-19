@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './base/base.component';
 import { ErrorPageComponent } from './content/error-page/error-page.component';
 import { DashboardimgComponent} from '../../pages/dashboardimg/dashboardimg.component';
+import { NotificationhistoryComponent } from '../../pages/notificationhistory/notificationhistory.component';
 // Auth
 import { AuthGuard } from '../../../core/auth';
 
@@ -14,6 +15,10 @@ const routes: Routes = [
 		component: BaseComponent,
 		canActivate: [AuthGuard],
 		children: [
+			{
+				path: 'notificationhistory',
+				component: NotificationhistoryComponent
+			},
 			{
 				path: 'dashboardimg',
 				component: DashboardimgComponent

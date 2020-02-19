@@ -1,33 +1,36 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-sm-10 col-md-10 col-sm-offset-1 col-md-offset-6">
-			<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+			<form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
 				<div id="user-data">
 					<div class="form-group">
 						<label for="Title">Naslov</label>
-						<input type="text" id="Title" class="form-control" ngModel name="title" required>
+						<input type="text" id="Title" class="form-control" ngModel name="title" required maxlength="25">
 					</div>
 					<div class="form-group">
 						<label for="exampleFormControlTextarea1">Sporočilo</label>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="10" ngModel name="text" required></textarea>
+						<textarea class="form-control" id="exampleFormControlTextarea1" rows="10" ngModel name="body" required maxlength="400"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="secret">Izberi banko</label>
-					<select id="secret" class="form-control" ngModel name="bank" required>
+					<select id="secret" class="form-control" ngModel name="APPLICATIONSID" required>
 						<option value="" selected disabled hidden>Izberi banko</option>
-						<option value="1">NLBSI</option>
-						<option value="2">NLBMK</option>
-						<option value="3">NLBRS</option>
-						<option value="4">NLBSA</option>
-						<option value="5">NLBKO</option>
-						<option value="6">DEH</option>
-						<option value="7">ABANKA</option>
+						<option value="10">NLBSI</option>
+						<option value="12">NLBMK</option>
+						<option value="19">NLBRS</option>
+						<option value="13">NLBSA</option>
+						<option value="18">NLBKO</option>
+						<option value="14">DEH</option>
+						<option value="11">ABANKA</option>
 					</select>
 				</div>
 				<button
 					class="btn btn-primary"
-					type="submit" [disabled]="!f.valid">Pošlji sporočilo</button>
+					type="submit" [disabled]="!f.valid || isPressed">Pošlji sporočilo</button>
+				<br>
+				<h4 *ngIf="isPressed">Sporočilo poslano</h4>
+				<pre>{{ loadedNotifications }}</pre>
 			</form>
 		</div>
 	</div>
