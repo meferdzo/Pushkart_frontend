@@ -23,6 +23,6 @@ export class NotificationhistoryComponent implements OnInit {
   }
 
   private fetchPosts(): Observable<NotificationhistoryModel[]> {
-  	return this.http.get<NotificationhistoryModel[]>('http://localhost:3000/notification/history')
+  	return this.http.get<NotificationhistoryModel[]>('http://localhost:3000/api/history')
   }
 }

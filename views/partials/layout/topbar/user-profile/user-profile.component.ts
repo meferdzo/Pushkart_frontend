@@ -14,12 +14,12 @@ import { currentUser, Logout, User } from '../../../../../core/auth';
 })
 export class UserProfileComponent implements OnInit {
 	// Public properties
-	user$: Observable<User>;
+	user$: Observable<any>;
 
-	@Input() avatar: boolean = true;
-	@Input() greeting: boolean = true;
-	@Input() badge: boolean;
-	@Input() icon: boolean;
+	// @Input() avatar: boolean = true;
+	// @Input() greeting: boolean = true;
+	// @Input() badge: boolean;
+	// @Input() icon: boolean;
 
 	/**
 	 * Component constructor
@@ -39,6 +39,7 @@ export class UserProfileComponent implements OnInit {
 	ngOnInit(): void {
 		this.user$ = this.store.pipe(select(currentUser));
 	}
+
 
 	/**
 	 * Log out

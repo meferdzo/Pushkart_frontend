@@ -52,7 +52,7 @@ export class LayoutConfig {
 		},
 		'header': {
 			'self': {
-				'skin': 'light',
+				'skin': 'dark',
 				'fixed': {
 					'desktop': true,
 					'mobile': true

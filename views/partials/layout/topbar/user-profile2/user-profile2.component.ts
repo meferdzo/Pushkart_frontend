@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 // State
 import { AppState } from '../../../../../core/reducers';
-import { currentUser, Logout, User } from '../../../../../core/auth';
+import {LoginService} from '../../../../services/login.service';
 
 @Component({
 	selector: 'kt-user-profile2',
@@ -14,7 +14,7 @@ import { currentUser, Logout, User } from '../../../../../core/auth';
 })
 export class UserProfile2Component implements OnInit {
 	// Public properties
-	user$: Observable<User>;
+	username: string = '';
 
 	@Input() avatar: boolean = true;
 	@Input() greeting: boolean = true;
@@ -25,8 +25,9 @@ export class UserProfile2Component implements OnInit {
 	 * Component constructor
 	 *
 	 * @param store: Store<AppState>
+	 * @param loginService
 	 */
-	constructor(private store: Store<AppState>) {
+	constructor(private store: Store<AppState>, private loginService: LoginService) {
 	}
 
 	/**
@@ -37,13 +38,16 @@ export class UserProfile2Component implements OnInit {
 	 * On init
 	 */
 	ngOnInit(): void {
-		this.user$ = this.store.pipe(select(currentUser));
+		this.loadUser();
 	}
 
 	/**
 	 * Log out
 	 */
 	logout() {
-		this.store.dispatch(new Logout());
+	}
+
+	loadUser() {
+		// return this.loginService.getUser().subscribe(data => this.username = data);
 	}
 }

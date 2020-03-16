@@ -21,7 +21,7 @@ const routes: Routes = [
 			},
 			{
 				path: 'dashboardimg',
-				component: DashboardimgComponent
+				loadChildren: () => import('app/views/pages/dashboardimg/dashboardimg.module').then(m => m.DashboardImgModule)
 			},
 			{
 				path: 'dashboard',

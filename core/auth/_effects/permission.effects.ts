@@ -19,7 +19,7 @@ import { Permission } from '../_models/permission.model';
 
 @Injectable()
 export class PermissionEffects {
-    @Effect()
+  /*  @Effect()
     loadAllPermissions$ = this.actions$
         .pipe(
             ofType<AllPermissionsRequested>(PermissionActionTypes.AllPermissionsRequested),
@@ -35,6 +35,6 @@ export class PermissionEffects {
     init$: Observable<Action> = defer(() => {
         return of(new AllPermissionsRequested());
     });
-
+*/
     constructor(private actions$: Actions, private auth: AuthService) { }
 }

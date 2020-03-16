@@ -51,8 +51,8 @@ export class UsersTable {
 				twitter: 'https://twitter.com/user',
 				instagram: 'https://instagram.com/user'
 			}
-        },
-        {
+		},
+		{
 			id: 3,
 			username: 'guest',
 			password: 'demo',

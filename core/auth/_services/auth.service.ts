@@ -9,19 +9,30 @@ import { QueryParamsModel, QueryResultsModel } from '../../_base/crud';
 import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';
 
-const API_USERS_URL = 'api/users';
-const API_PERMISSION_URL = 'api/permissions';
-const API_ROLES_URL = 'api/roles';
+//const API_USERS_URL = 'api/users';
+//const API_PERMISSION_URL = 'api/permissions';
+//const API_ROLES_URL = 'api/roles';
+
+const API_URL = environment.apiUrl;
 
 @Injectable()
 export class AuthService {
-    constructor(private http: HttpClient) {}
-    // Authentication/Authorization
-    login(email: string, password: string): Observable<User> {
-        return this.http.post<User>(API_USERS_URL, { email, password });
-    }
+	headers = new HttpHeaders({
+		'Content-Type': 'application/x-www-form-urlencoded'
+	});
+	options = {
+		headers: this.headers,
+		withCredentials: true
+	};
 
-    getUserByToken(): Observable<User> {
+	constructor(private http: HttpClient) {}
+
+	// Authentication/Authorization
+	login(body: any): Observable<any> {
+		return this.http.post<any>(API_URL + '/login', body.toString(), this.options);
+	}
+
+  /*  getUserByToken(): Observable<User> {
         const userToken = localStorage.getItem(environment.authTokenKey);
         const httpHeaders = new HttpHeaders();
         httpHeaders.append('Authorization', 'Bearer ' + userToken);
@@ -42,12 +53,12 @@ export class AuthService {
             );
     }
 
-    /*
+    /!*
      * Submit forgot password request
      *
      * @param {string} email
      * @returns {Observable<any>}
-     */
+     *!/
     public requestPassword(email: string): Observable<any> {
     	return this.http.get(API_USERS_URL + '/forgot?=' + email)
     		.pipe(catchError(this.handleError('forgot-password', []))
@@ -143,13 +154,13 @@ export class AuthService {
 		return this.http.post<QueryResultsModel>(API_ROLES_URL + '/findRoles', queryParams, { headers: httpHeaders});
 	}
 
- 	/*
+ 	/!*
  	 * Handle Http operation that failed.
  	 * Let the app continue.
      *
 	 * @param operation - name of the operation that failed
  	 * @param result - optional value to return as the observable result
- 	 */
+ 	 *!/*/
     private handleError<T>(operation = 'operation', result?: any) {
         return (error: any): Observable<any> => {
             // TODO: send the error to remote logging infrastructure

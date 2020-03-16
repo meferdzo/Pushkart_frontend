@@ -26,7 +26,7 @@ import {
 
 @Injectable()
 export class UserEffects {
-    showPageLoadingDistpatcher = new UsersPageToggleLoading({ isLoading: true });
+   /* showPageLoadingDistpatcher = new UsersPageToggleLoading({ isLoading: true });
     hidePageLoadingDistpatcher = new UsersPageToggleLoading({ isLoading: false });
 
     showActionLoadingDistpatcher = new UsersActionToggleLoading({ isLoading: true });
@@ -96,6 +96,6 @@ export class UserEffects {
                 return this.hideActionLoadingDistpatcher;
             }),
         );
-
+*/
     constructor(private actions$: Actions, private auth: AuthService, private store: Store<AppState>) { }
 }

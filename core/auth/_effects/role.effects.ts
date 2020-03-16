@@ -31,7 +31,7 @@ import {
 
 @Injectable()
 export class RoleEffects {
-    showPageLoadingDistpatcher = new RolesPageToggleLoading({ isLoading: true });
+  /*  showPageLoadingDistpatcher = new RolesPageToggleLoading({ isLoading: true });
     hidePageLoadingDistpatcher = new RolesPageToggleLoading({ isLoading: false });
 
     showActionLoadingDistpatcher = new RolesActionToggleLoading({ isLoading: true });
@@ -120,7 +120,7 @@ export class RoleEffects {
     @Effect()
     init$: Observable<Action> = defer(() => {
         return of(new AllRolesRequested());
-    });
+    });*/
 
     constructor(private actions$: Actions, private auth: AuthService, private store: Store<AppState>) { }
 }

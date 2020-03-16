@@ -17,8 +17,8 @@ import { AuthNoticeService, AuthService, Login } from '../../../../core/auth';
  * ! Just example => Should be removed in development
  */
 const DEMO_PARAMS = {
-	EMAIL: 'admin@demo.com',
-	PASSWORD: 'demo'
+	USERNAME: '',
+	PASSWORD: ''
 };
 
 @Component({
@@ -95,26 +95,21 @@ export class LoginComponent implements OnInit, OnDestroy {
 	 * Default params, validators
 	 */
 	initLoginForm() {
-		// demo message to show
+		// message to show
 		if (!this.authNoticeService.onNoticeChanged$.getValue()) {
-			const initialNotice = `Use account
-			<strong>${DEMO_PARAMS.EMAIL}</strong> and password
+			const initialNotice = `Use domain account
+			<strong>${DEMO_PARAMS.USERNAME}</strong> and password
 			<strong>${DEMO_PARAMS.PASSWORD}</strong> to continue.`;
 			this.authNoticeService.setNotice(initialNotice, 'info');
 		}
 
 		this.loginForm = this.fb.group({
-			email: [DEMO_PARAMS.EMAIL, Validators.compose([
-				Validators.required,
-				Validators.email,
-				Validators.minLength(3),
-				Validators.maxLength(320) // https://stackoverflow.com/questions/386294/what-is-the-maximum-length-of-a-valid-email-address
+			username: [DEMO_PARAMS.USERNAME, Validators.compose([
+				Validators.required
 			])
 			],
 			password: [DEMO_PARAMS.PASSWORD, Validators.compose([
-				Validators.required,
-				Validators.minLength(3),
-				Validators.maxLength(100)
+				Validators.required
 			])
 			]
 		});
@@ -136,14 +131,19 @@ export class LoginComponent implements OnInit, OnDestroy {
 		this.loading = true;
 
 		const authData = {
-			email: controls['email'].value,
+			username: controls['username'].value,
 			password: controls['password'].value
 		};
+
+		let body = new URLSearchParams();
+		body.set('username', authData.username);
+		body.set('password', authData.password);
+
 		this.auth
-			.login(authData.email, authData.password)
+			.login(body)
 			.pipe(
 				tap(user => {
-					if (user) {
+					if (user['success'] === true) {
 						this.store.dispatch(new Login({authToken: user.accessToken}));
 						this.router.navigateByUrl(this.returnUrl); // Main page
 					} else {
@@ -152,7 +152,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 				}),
 				takeUntil(this.unsubscribe),
 				finalize(() => {
-					this.loading = false;
+					// this.loading = false;
 					this.cdr.markForCheck();
 				})
 			)
